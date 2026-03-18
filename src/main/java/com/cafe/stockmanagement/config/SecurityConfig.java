@@ -43,7 +43,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
         .csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests(auth -> auth
             // Public
-            .requestMatchers("/api/auth/**", "/oauth2/**", "/login/oauth2/**").permitAll()
+            .requestMatchers("/api/auth/**", "/oauth2/**", "/login/oauth2/**", "/api/auth/oauth2/success").permitAll()
 
             // Admin only — system configuration
             .requestMatchers(HttpMethod.DELETE, "/api/categories/**").hasAuthority("ROLE_ADMIN")
@@ -65,9 +65,9 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
         .sessionManagement(session -> session
             .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
         .oauth2Login(oauth2 -> oauth2
-            .authorizationEndpoint(e -> e.baseUri("/oauth2/authorize"))
-            .redirectionEndpoint(e -> e.baseUri("/login/oauth2/code/*"))
-            .successHandler(oAuth2SuccessHandler))
+    .authorizationEndpoint(e -> e.baseUri("/oauth2/authorize"))
+    .redirectionEndpoint(e -> e.baseUri("/login/oauth2/code/*"))
+    .successHandler(oAuth2SuccessHandler))
         .authenticationProvider(authenticationProvider())
         .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
@@ -93,7 +93,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
         return config.getAuthenticationManager();
     }
 
-    @Bean
+   @Bean
 public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration config = new CorsConfiguration();
     config.setAllowedOrigins(List.of("http://localhost:5173"));
