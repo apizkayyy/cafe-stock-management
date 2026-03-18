@@ -1,0 +1,16 @@
+# H2 in-memory database
+spring.datasource.url=URL
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=USERNAME
+spring.datasource.password=PASSWORD
+
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=create-drop
+
+# Dummy values for tests
+jwt.secret=JWT TOKEN
+jwt.expiration=EXPIRY DURATION(IN MILISECONDS)
+
+# Dummy Google OAuth2
+spring.security.oauth2.client.registration.google.client-id=test-client-id
+spring.security.oauth2.client.registration.google.client-secret=test-client-secret

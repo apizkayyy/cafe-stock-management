@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ☕ Cafe Stock Management System
 
 A production-ready **REST API** for managing cafe inventory, built with Java Spring Boot. Features JWT authentication, Google OAuth2, role-based access control, and full stock transaction tracking.
@@ -44,7 +45,7 @@ A production-ready **REST API** for managing cafe inventory, built with Java Spr
 
 - 🔐 **JWT Authentication** — Stateless token-based auth
 - 🔑 **Google OAuth2** — Sign in with Google
-- 👥 **Role-Based Access** — `ROLE_ADMIN` and `ROLE_STAFF`
+- 👥 **Role-Based Access** — `ROLE_ADMIN`, `ROLE_MANAGER` and `ROLE_STAFF`
 - 📦 **Product Management** — Full CRUD with SKU tracking
 - 🗂 **Category Management** — Organize products by category
 - 🚚 **Supplier Management** — Track product suppliers
@@ -283,8 +284,8 @@ Expected: `Tests run: 21, Failures: 0, Errors: 0`
 | GET | `/api/products/{id}` | Any | Get product by ID |
 | GET | `/api/products/low-stock` | Any | Get low stock products |
 | GET | `/api/products/search?name=` | Any | Search products by name |
-| POST | `/api/products` | ADMIN | Create product |
-| PUT | `/api/products/{id}` | ADMIN | Update product |
+| POST | `/api/products` | ADMIN + MANAGER | Create product |
+| PUT  | `/api/products/{id}` | ADMIN + MANAGER | Update product |
 | DELETE | `/api/products/{id}` | ADMIN | Deactivate product |
 
 ### Stock Transactions
@@ -567,3 +568,7 @@ This project is open source and available under the [MIT License](LICENSE).
 Built by **Hafiz** as a learning portfolio project.
 
 > *"Without tests: 'I think my code works.' With tests: 'I can PROVE my code works.'"*
+=======
+# cafe-stock-management
+Stock Management System
+>>>>>>> a0c413d105666ec22622a8af62e66be384f76220
